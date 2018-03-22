@@ -197,11 +197,6 @@
 			</div>
 		</div>
 
-
-
-
-
-
 		<script type="text/javascript" src="js/monthly.js"></script>
 		<script>
 			//Added document.ready
@@ -302,6 +297,8 @@
 						data: datastring,
 						success: function(response) {
 							console.log(response);
+							alert("Scheduled !");
+							$('#DownModal').modal('close');
 						}
 					});
 				});
