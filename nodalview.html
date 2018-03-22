@@ -189,6 +189,7 @@
                     $('#total').text( a[1]+"M");
                     $('#txtLevel').val(a[0]);
                     $('#btnShow').trigger('click');
+                    localStorage.setItem("damname",a[3]);
                     console.log(a[0]);
                 }
             });
@@ -202,6 +203,7 @@
                     beforeSend: function() {
                       console.log("beforeSend");
                       $("#refresh-button").addClass("animate-refresh");
+                      $('#refresh-button').attr('disabled',true);
                     },
                     url: 'http://www.occasionz.in/damit/mainPage.php',
                     success: function (response) {
@@ -212,6 +214,7 @@
                         $('#btnShow').trigger('click');
                         console.log(a[0]);
                       $("#refresh-button").removeClass("animate-refresh");
+                      $('#refresh-button').attr('disabled',false);
                   }
             });
           });

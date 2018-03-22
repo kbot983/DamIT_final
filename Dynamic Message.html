@@ -29,7 +29,8 @@
 		$(document).ready(function() {
 			$('.modal').modal();
 			$(".button-collapse").sideNav();
-			$('#textarea1').val('You have been requested to evacuate the region due to emergency at Chetri Dam');
+			var text = "You have been requested to evacuate the region due to emergency at "+localStorage.getItem("damname");
+			$('#textarea1').val(text);
 		});
 	</script>
 </head>
@@ -97,7 +98,8 @@
 			<p>Are you sure you want to send out that alert ?</p>
 		</div>
 		<div class="modal-footer">
-			<button id="sendagree" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+			<button id="sendagree" class="modal-action modal-close waves-effect waves-green btn-flat green-text">Yes</a>
+			<button class="modal-action modal-close waves-effect waves-red btn-flat red-text">No</a>
 		</div>
 	</div>
 
