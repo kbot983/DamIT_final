@@ -69,17 +69,7 @@
 		</li>
 		<li><a class="subheader">Report an issue</a></li>
 	</ul>
-
-
-
-
-
-
-
-
-
-
-	<form name="citizen_login_form">
+	<form>
 		<div class="container" id="cardpanel">
 			<div class="card-panel white center">
 				<h5>Send Message</h5><br>
@@ -107,46 +97,43 @@
 			<p>Are you sure you want to send out that alert ?</p>
 		</div>
 		<div class="modal-footer">
-			<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+			<button id="sendagree" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
 		</div>
 	</div>
 
 	<!-- *****************  Alert Box End ************************-->
 
+	<!-- *****************  Notification modal Start  ***************** -->
+
+	<div id="modal2" class="modal">
+		<div class="modal-content">
+			<h4>Sent</h4>
+			<p>Your message has been sent to the users</p>
+		</div>
+		<div class="modal-footer">
+			<button class="modal-action modal-close waves-effect waves-green btn-flat">Okay</a>
+		</div>
+	</div>
+
+	<!-- ***************** Notification modal ************************-->
+
 	<script type="text/javascript">
-		$('form').on('submit', function(e) {
+		$('#sendagree').on('click', function(e) {
 			e.preventDefault();
-			var x = document.forms["citizen_login_form"]["uemail"].value;
-			if (x == "") {
-				alert("Email required!");
+			var message = document.getElementById("textarea1").value;
+			if(message == ""){
+				alert("Message required to send");
 				return false;
 			}
-			var x = document.forms["citizen_login_form"]["pass"].value;
-			if (x == "") {
-				alert("Password required!");
-				return false;
-			}
+			datastring = "email_id="+localStorage.getItem('username')+"&message="+message;
 			$.ajax({
 				type: 'post',
-				//url: 'http://localhost/appon/citizen_login.php',
-				url: 'https://appon.000webhostapp.com/citizen_login.php',
+				url: 'http://www.occasionz.in/damit/instant.php',
 				cache: false,
-				data: $('form').serialize(),
+				data: datastring,
 				success: function(response) {
 					console.log(response);
-					if (response == "done") {
-						//alert('Logging in!');
-						location.href = "appointment_request.html";
-					}
-					if (response == "otp") {
-						alert('OTP not verified!');
-						location.href = "verify.html";
-					}
-					if (response == "invalid") {
-						alert('Invalid email or password!');
-						document.forms["citizen_login_form"]["pass"].value = "";
-					}
-
+					 $('#modal2').modal('open');
 				}
 			});
 		});
