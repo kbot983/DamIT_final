@@ -1,0 +1,148 @@
+<html>
+	<head>
+		 <!--<script src="http://code.jquery.com/jquery-1.9.1.js"></script>-->
+		 <script type="text/javascript" src="js/jquery.min.js"></script>
+		 <!--<script type="text/javascript" src="../JS/jquery-3.3.1.min.js"></script>-->
+		 <link rel="stylesheet" href="materialize-v0.100.2/materialize/css/materialize.min.css">
+     <script src="materialize-v0.100.2/materialize/js/materialize.min.js"></script>
+		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    	  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!--     	  <link rel="stylesheet" href="loading.css"> -->
+		<style>
+			#cardpanel{
+				padding-top:20%;
+			}
+			#logosize{
+				height:13%;
+				width:30%;
+			}
+			#L6
+			{
+    			height:15%;
+ 				width:15%;
+ 			 }
+ 			 .bg-color
+ 			 {
+ 			 	background:#333;
+ 			 }
+ 			 .modal
+ 			 {
+ 			 	background-color:#222;
+ 			 	border-radius: 20px;
+ 			 	margin-top: 40%;
+ 			 }
+ 			 #imgclass
+ 			 {
+ 			 	margin-left: 5%;
+ 			 	overflow: hidden;
+ 			 }
+		</style>
+		<script>
+			$(document).ready(function(){
+					if(localStorage.getItem("loggedin") == "1"){
+							window.location.href = "nodalview.html";
+					}
+					$('.modal').modal();
+			});
+		</script>
+
+    </head>
+
+
+	<body class="bg-color">
+		<form name="citizen_login_form">
+			<div class="container" id="cardpanel">
+			    <div class="card-panel white">
+					<center><img src="img/logo.png" id="logosize"></center>
+				    <div class="row">
+						<div class="input-field col s12">
+							<input id="uemail" type="email" name ="uemail" class="validate">
+							<label for="username">Email</label>
+						</div>
+						<div class="input-field col s12">
+						    <input id="pass" type="password" name="pass" class="validate">
+						    <label for="password">Password</label>
+						</div>
+
+
+						<div class="col s7 "> <br>
+							<h5><a href="signUp.html" class="cyan-text">Sign Up</a></h5>
+						<br>
+
+						</div>
+
+						<div class="col s12">
+                      <button class="btn waves-effect waves-light cyan" type="submit" value="Register Now"/>Login
+                        <i class="material-icons right">send</i>
+                      </button>
+                    </div>
+			        </div>
+			    </div>
+			</div>
+		</form>
+		<div id="modal1" class="modal">
+    <div class="modal-content">
+
+				    <img src="img/drop.gif" height="auto" width="250px" alt="drop" id="imgclass">
+
+    </div>
+  </div>
+		<script type="text/javascript">
+				$('form').on('submit', function (e) {
+		        e.preventDefault();
+		        var x = document.forms["citizen_login_form"]["uemail"].value;
+          		if (x == "") {
+              		alert("Email required!");
+              		return false;
+          		}
+          		var x = document.forms["citizen_login_form"]["pass"].value;
+          		if (x == "") {
+              		alert("Password required!");
+              		return false;
+          		}
+		          $.ajax({
+		            type: 'post',
+		            url: 'http://www.occasionz.in/damit/login.php',
+		            cache: false,
+								beforeSend: function(){
+									$('.modal').modal('open');
+								},
+		            data: $('form').serialize(),
+		            success: function (response) {
+		            	console.log(response);
+									$('.modal').modal('close');
+		            	if(response == "Nodal"){
+										var key = document.forms["citizen_login_form"]["uemail"].value;
+		                localStorage.setItem("username",key);
+										localStorage.setItem("loggedin","1");
+										window.location.href = "nodalview.html";
+									}
+									if(response == "Regional"){
+
+									}
+									if(response == "User"){
+
+									}
+									if(response == "Error"){
+										alert("Invalid emaild or password !");
+										document.forms["citizen_login_form"]["pass"].value = "";
+									}
+						// if (response=="done") {
+		            	// 	//alert('Logging in!');
+		              	// 	location.href = "appointment_request.html";
+		            	// }
+		            	// if (response=="otp") {
+		            	// 	alert('OTP not verified!');
+		            	// 	location.href = "verify.html";
+		            	// }
+		            	// if (response=="invalid") {
+		            	// 	alert('Invalid email or password!');
+		            	// 	document.forms["citizen_login_form"]["pass"].value = "";
+		            	// }
+
+		            }
+		          });
+		        });
+		</script>
+	</body>
+</html>
