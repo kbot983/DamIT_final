@@ -9,10 +9,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" type="text/css" href="css/nodalview.css">
 	<script>
-		$(document).ready(function(){
-				if(localStorage.getItem("loggedin") == "0"){
-						window.location.href = "login.html";
-				}
+		$(document).ready(function() {
+			if (localStorage.getItem("loggedin") == "0") {
+				window.location.href = "login.html";
+			}
 		});
 	</script>
 	<style>
@@ -29,7 +29,7 @@
 		$(document).ready(function() {
 			$('.modal').modal();
 			$(".button-collapse").sideNav();
-			var text = "You have been requested to evacuate the region due to emergency at "+localStorage.getItem("damname");
+			var text = "You have been requested to evacuate the region due to emergency at " + localStorage.getItem("damname");
 			$('#textarea1').val(text);
 		});
 	</script>
