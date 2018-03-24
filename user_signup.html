@@ -182,7 +182,6 @@
 				var emergency = $('#emerg').val();
 				var emergency2 = $('#emerg2').val();
 				var emergency3 = $('#emerg3').val();
-
 				var mobile_no = localStorage.getItem('contact');
 
 				console.log(dam_name);
@@ -192,6 +191,9 @@
 					data: { mobile_no: mobile_no, language: language, emergency: emergency, dam_name: dam_name, emergency2: emergency2, emergency3: emergency3 },
 					success: function (response) {
 						console.log(response);
+						if(response == "success"){
+							window.location.href = "userview.html";
+						}
 					}
 				});
 			});
