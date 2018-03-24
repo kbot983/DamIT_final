@@ -66,7 +66,7 @@
 
 
 						<div class="col s7 "> <br>
-							<h5><a href="signUp.html" class="cyan-text">Sign Up</a></h5>
+							<h5><a href="otp.html" class="cyan-text">Sign Up</a></h5>
 						<br>
 
 						</div>
@@ -117,11 +117,10 @@
 										localStorage.setItem("loggedin","1");
 										window.location.href = "nodalview.html";
 									}
-									if(response == "Regional"){
-
-									}
 									if(response == "User"){
-
+										localStorage.setItem("username",key);
+									 	localStorage.setItem("loggedin","2");
+									  //window.location.href = "nodalview.html";
 									}
 									if(response == "Error"){
 										alert("Invalid emaild or password !");

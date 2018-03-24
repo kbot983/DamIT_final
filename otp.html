@@ -1,0 +1,155 @@
+<html>
+
+<head>
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+	<link rel="stylesheet" href="materialize-v0.100.2/materialize/css/materialize.min.css">
+	<script src="materialize-v0.100.2/materialize/js/materialize.min.js"></script>
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    #cardpanel {
+      padding-top: 40px;
+    }
+
+    #logosize {
+      height: 13%;
+      width: 30%;
+    }
+
+    #otp_input {
+      display: none;
+    }
+
+    .btn-flat {
+      font-size: 20px;
+    }
+  </style>
+</head>
+
+<body class="grey lighten-2">
+
+  <form name="otp_form">
+    <div class="container" id="cardpanel">
+      <div class="card-panel white">
+        <center><img src="img/logo.png" id="logosize"></center>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="mobile_no" type="text" name="mobile_no">
+            <label for="mobile_no">Enter your mobile number</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <center>
+              <button class="btn waves-effect waves-light cyan" id="submit">Get Otp
+							<i class="material-icons right">send</i>
+
+            </button>
+              <label id="demo" class="btn-flat"></label>
+            </center>
+          </div>
+        </div>
+        <div id="otp_input">
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="otp" type="text" name="otp">
+              <label for="otp">Enter Otp</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s12">
+              <center><button class="btn waves-effect waves-light cyan center" type="submit" id="otpsubmit">submit
+							<i class="material-icons right">send</i></button></center>
+            </div>
+          </div>
+        </div>
+        <!-- <a href="#" id="resend">resend otp?</a> -->
+        <script type="text/javascript">
+          // $("#resend").hide();
+          $('.btn-flat').hide();
+          $("#submit").click(function() {
+            var timer2 = "05:01";
+            $('#submit').attr('disabled', true);
+            $('.btn-flat').show()
+            var interval = setInterval(function() {
+
+
+              var timer = timer2.split(':');
+              //by parsing integer, I avoid all extra string processing
+              var minutes = parseInt(timer[0], 10);
+              var seconds = parseInt(timer[1], 10);
+              --seconds;
+              minutes = (seconds < 0) ? --minutes : minutes;
+              seconds = (seconds < 0) ? 59 : seconds;
+              seconds = (seconds < 10) ? '0' + seconds : seconds;
+              //minutes = (minutes < 10) ?  minutes : minutes;
+              $('#demo').html(minutes + ':' + seconds);
+              if (minutes < 0) clearInterval(interval);
+              //check if both minutes and seconds are 0
+              if ((seconds <= 0) && (minutes <= 0)) {
+                // $('#resend').show();
+                $('#submit').attr('disabled', false)
+                clearInterval(interval);
+              }
+              timer2 = minutes + ':' + seconds;
+            }, 1000);
+          });
+        </script>
+      </div>
+  </form>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#submit').click(function(e) {
+        e.preventDefault();
+
+        console.log("click");
+        var mobile_no = $('input[name=mobile_no]').val();
+        $.ajax({
+          url: 'http://www.occasionz.in/damit/checkNo.php',
+          type: 'post',
+          cache: false,
+          data: {
+            number: mobile_no
+          }, // Send userid from here
+          success: function(response) {
+            console.log(response);
+            $("#otp_input").show();
+          }
+        });
+
+
+
+      });
+      $('#otpsubmit').click(function(e) {
+        e.preventDefault();
+        var mobile_no = $('input[name=mobile_no]').val();
+        var otp_no = $('input[name=otp]').val();
+        $.ajax({
+          type: 'post',
+          url: 'http://www.occasionz.in/damit/checkOtp.php',
+          data: {
+            mobile_no: mobile_no,
+            otp_no: otp_no
+          },
+          success: function(responseotp) {
+            console.log(responseotp);
+
+            if (responseotp == "Expired") {
+              alert("Your OTP has expired. Please try again");
+            }
+            else if (responseotp == "Successful") {
+              localStorage.setItem("contact", mobile_no);
+              window.location.href = "signUp.html";
+            }
+            else {
+              alert("Your OTP is incorrect. Please enter again");
+            }
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
