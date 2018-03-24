@@ -29,7 +29,7 @@
 		$(document).ready(function() {
 			$('.modal').modal();
 			$(".button-collapse").sideNav();
-			var text = "You have been requested to evacuate the region due to emergency at " + localStorage.getItem("damname");
+			var text = "The dam "+localStorage.getItem("damname")+" has reached a considerable level. Please limit your movements near the area";
 			$('#textarea1').val(text);
 		});
 	</script>
@@ -42,12 +42,6 @@
 		<a href="#" data-activates="slide-out" class="button-collapse "><i class="material-icons">menu</i></a>
 		<a href="#" class="brand-logo">DamIT</a>
 	</nav>
-
-
-
-
-
-
 
 
 	<ul id="slide-out" class="side-nav">
