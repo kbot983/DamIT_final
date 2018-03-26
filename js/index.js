@@ -31,7 +31,7 @@ var app = {
         .endInit();
 
         window.plugin.OneSignal.getIds(function (ids){
-            alert(ids.userId);
+            localstorage.setItem("playerId", ids.userId);
         });
     },
 
