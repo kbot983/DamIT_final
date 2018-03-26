@@ -193,6 +193,7 @@
 						console.log(response);
 						if(response == "success"){
 							window.location.href = "userview.html";
+							localStorage.setItem("loggedin", "1");
 						}
 					}
 				});

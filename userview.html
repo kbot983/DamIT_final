@@ -19,13 +19,14 @@
         width: 30%;
     }
 </style>
-<!--<script>
+<script>
    $(document).ready(function(){
      if(localStorage.getItem("loggedin") == "0"){
        window.location.href = "login.html";
    }
 });
-</script> -->
+</script>
+
 </head>
 <!-- Nav Panel-->
 <ul id="slide-out" class="side-nav">
@@ -48,7 +49,7 @@
         </div>
     </li>
     <li>
-        <a href="User_Index.html">Home</a>
+        <a href="#">Home</a>
     </li>
     <li>
         <a href="UserSchedule.html">Schedule</a>
@@ -235,7 +236,7 @@
 
                 var onError = function(error){
                     console.log(error);
-                    alert("Try again later if you are alive");
+                    alert("There seems to be a problem ! Please try again ! Stay Safe !!");
                 };
           });
       });
