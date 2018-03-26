@@ -107,7 +107,8 @@
             alert("Invalid Contact");
             return false;
           }
-          datastring = "playerid="+localStorage.getItem('playerid')+"&fname="+document.forms["user_login_form"]["fname"].value+"&lname="+document.forms["user_login_form"]["lname"].value+"&pass="+document.forms["user_login_form"]["pass"].value+"&zipcode="+document.forms["user_login_form"]["zipcode"].value+"&contact="+localStorage.getItem('contact')+"&uemail="+document.forms["user_login_form"]["uemail"].value;
+          alert(localStorage.getItem('playerId'));
+          datastring = "playerid="+localStorage.getItem('playerId')+"&fname="+document.forms["user_login_form"]["fname"].value+"&lname="+document.forms["user_login_form"]["lname"].value+"&pass="+document.forms["user_login_form"]["pass"].value+"&zipcode="+document.forms["user_login_form"]["zipcode"].value+"&contact="+localStorage.getItem('contact')+"&uemail="+document.forms["user_login_form"]["uemail"].value;
           $.ajax({
             type: 'post',
             url: 'http://www.occasionz.in/damit/signUp.php',

@@ -2,15 +2,15 @@
 
 <head>
 	<!--<script src="http://code.jquery.com/jquery-1.9.1.js"></script>-->
-	<script type="text/javascript" src="js/jquery.min.js"></script>
-	<script type="text/javascript" src="js/index.js"></script>
+	<!-- <script type="text/javascript" src="./js/index.js"></script> -->
+	<script type="text/javascript" src="./js/jquery.min.js"></script>
 	<!--<script type="text/javascript" src="../JS/jquery-3.3.1.min.js"></script>-->
 	<link rel="stylesheet" href="materialize-v0.100.2/materialize/css/materialize.min.css">
 	<script src="materialize-v0.100.2/materialize/js/materialize.min.js"></script>
 	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<!--     	  <link rel="stylesheet" href="loading.css"> -->
-	
+
 	<style>
 		#cardpanel {
 			padding-top: 20%;
@@ -42,13 +42,19 @@
 		}
 	</style>
 	<script>
+		var player = localStorage.getItem("player");
+		console.log(player);
+		alert(player);
 		$(document).ready(function() {
-
-			var player = localStorage.getItem("player");
 			if (localStorage.getItem("loggedin") == "1") {
 				window.location.href = "nodalview.html";
 			}
+			alert("1230");
+			var player = localStorage.getItem("player");
+			console.log(player);
+			alert(player);
 			$('.modal').modal();
+
 		});
 	</script>
 </head>
@@ -135,6 +141,7 @@
 			});
 		});
 	</script>
+	<script type="text/javascript" src="./js/index.js"></script>
 </body>
 
 </html>
