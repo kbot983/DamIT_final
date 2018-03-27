@@ -16,7 +16,6 @@
             //var lang = localStorage.getItem("language");
             var lang = "english";
             switch (lang) {
-
                 case "english":
                     message.email = "Email Id";
                     message.password = "Password";
