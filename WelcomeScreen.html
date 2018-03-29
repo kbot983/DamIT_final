@@ -1,0 +1,181 @@
+<html>
+
+<head>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+	<link rel="stylesheet" href="css/loader2.css">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="icon" type="image/gif" sizes="16x16" href="img/favicon.ico">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<script> 
+
+		$(document).ready(function () {
+			// function showpanel() {
+			// 	$('body').addClass('loaded');
+			// }
+
+			// s etTimeout(showpanel, 2000);
+			$('.carousel.carousel-slider').carousel({
+				fullWidth: true, indicators: true, noWrap: true, onCycleTo:
+					function (data) {
+						if ($(data).attr("href") == "#one!") {
+							$('a').fadeOut()
+							$('a').remove();
+							var nextB = '<a class="btn waves-effect white grey-text darken-text-2 getStarted">Get Started</a>'
+							$(nextB).appendTo('.centerer').show();
+						}
+						else if ($(data).attr("href") == "#two!") {
+							$('a').fadeOut()
+							$('a').remove();
+							var nextB = '<a class="btn-flat large right white-text"><h5><i class="material-icons right medium">navigate_next</i>Next</h5></a>'
+							$(nextB).fadeIn(1500).appendTo('.nextButton').show();
+						}
+						else if ($(data).attr("href") == "#three!") {
+							$('a').remove();
+							var nextB = '<a class="btn-flat large right white-text"><h5><i class="material-icons right medium">navigate_next</i>Next</h5></a>'
+							$(nextB).appendTo('.nextButton').show();
+						}
+						else if ($(data).attr("href") == "#four!") {
+							$('a').remove();
+							var nextB = '<a class="btn-flat large right white-text"><h5><i class="material-icons right medium">navigate_next</i>Next</h5></a>'
+							$(nextB).appendTo('.nextButton').show();
+						}
+						else if ($(data).attr("href") == "#five!") {
+							$('a').remove();
+							var nextB = '<a class="btn-flat large right white-text"><h5><i class="material-icons right medium">navigate_next</i>Next</h5></a>'
+							$(nextB).appendTo('.nextButton').show();
+						}
+						else if ($(data).attr("href") == "#six!") {
+							$('a').remove();
+							var nextB = '<a class="btn-flat large right white-text" href="login.html"><h5><i class="material-icons right medium">done_all</i>Done</h5></a>'
+							$(nextB).appendTo('.nextButton').show();
+						}
+					}
+			});
+
+			$('.getStarted').click(function () {
+				$('.carousel').carousel('next');
+			});
+			$('.nextButton').click(function () {
+				$('.carousel').carousel('next');
+			});
+
+
+
+		});
+
+
+	</script>
+	<style type="text/css">
+		.centerer {
+			text-align: center;
+		}
+
+		body {
+			background-image: url("img/backTest.jpg");
+			background-size: cover;
+		}
+
+		.btn-flat {
+			position: absolute;
+			bottom: 4%;
+			right: 0px;
+
+		}
+
+		.btn-flat i {
+			bottom: 0;
+			font-size: 2.1rem;
+			margin-left: 3;
+
+		}
+
+		#logosize {
+			height: 18%;
+			width: 35%;
+
+		}
+
+		#padding {
+			padding-top: 10%;
+		}
+
+		.carousel.carousel-slider .carousel-item h1 {
+			font-size: 4.0rem;
+			line-height: 108%;
+			padding-top: 10%;
+		}
+
+		.carousel.carousel-slider .carousel-item h2 {
+			font-size: 45px;
+			line-height: 108%;
+			padding-top: 20%;
+		}
+	</style>
+
+</head>
+
+<div id="loader-wrapper">
+	<div id="loader"></div>
+	<div class="loader-section section-left"></div>
+	<div class="loader-section section-right"></div>
+</div>
+
+<body>
+	<div class="row" id="padding">
+		<div class="center">
+			<img src="img/logo.png" id="logosize">
+		</div>
+		<div class="carousel carousel-slider center">
+			<div class="carousel-item white-text" href="#one!">
+				<h1>Welcome To DamIT</h1>
+			</div>
+			<div class="carousel-item white-text" href="#two!">
+				<h2 class="condensed light">Bilingual Support</h1>
+					<i class="material-icons large">translate</i>
+			</div>
+			<div class="carousel-item white-text" href="#three!">
+				<h2>Real Time Information</h1>
+					<i class="material-icons large">trending_up</i>
+			</div>
+			<div class="carousel-item white-text" href="#four!">
+				<h2>Secure Authentication</h2>
+				<i class="material-icons large">security</i>
+			</div>
+			<div class="carousel-item white-text" href="#five!">
+				<h2>Location based</h2>
+				<i class="material-icons large">track_changes</i>
+			</div>
+			<div class="carousel-item white-text" href="#six!">
+				<h2>Rural Friendly</h2>
+				<i class="material-icons large">nature_people</i>
+			</div>
+		</div>
+		<div class="centerer">
+		</div>
+		<div class="nextButton">
+
+		</div>
+
+		<script>
+			var checker = 0;
+			setInterval(function () {
+				var player = localStorage.getItem("playerId");
+				
+				// $	('#pla').val("ID:" + player);
+				if (checker == 0) {
+					if (player != null) {
+						$('body').addClass('loaded');
+						checker = 1;
+					}
+				}
+			}, 5000);
+		</script>
+</body>
+
+</html>

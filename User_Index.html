@@ -9,22 +9,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/userView.css">
     <style>
-    .cup {
-        background-position: 0 -10px;
-    }
+        .cup {
+            background-position: 0 -10px;
+        }
 
-    #logosize {
-        height: 13%;
-        width: 30%;
-    }
-</style>
-<script>
-   $(document).ready(function(){
-     if(localStorage.getItem("loggedin") == "0"){
-       window.location.href = "login.html";
-   }
-});
-</script>
+        #logosize {
+            height: 13%;
+            width: 30%;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            if (localStorage.getItem("loggedin") == "0") {
+                window.location.href = "login.html";
+            }
+        });
+    </script>
 </head>
 <!-- Nav Panel-->
 <ul id="slide-out" class="side-nav">
@@ -53,16 +53,24 @@
         <a href="UserSchedule.html">Schedule</a>
     </li>
     <li>
-        <a href="blog.html">Dam Guide</a>
+        <a href="blog.html">Dam Information</a>
     </li>
     <li>
         <a class='dropdown-button white' href='#' data-activates='dropdown1'>Change Language</a>
 
         <ul id='dropdown1' class='dropdown-content '>
-            <li><a href="#!" class="blue-text">Hindi</a></li>
-            <li><a href="#!" class="blue-text">English</a></li>
-            <li><a href="#!" class="blue-text">Gujarati</a></li>
-            <li><a href="#!" class="blue-text">Marathi</a></li>
+            <li>
+                <a href="#!" class="blue-text">Hindi</a>
+            </li>
+            <li>
+                <a href="#!" class="blue-text">English</a>
+            </li>
+            <li>
+                <a href="#!" class="blue-text">Gujarati</a>
+            </li>
+            <li>
+                <a href="#!" class="blue-text">Marathi</a>
+            </li>
         </ul>
     </li>
     <li>
@@ -74,7 +82,7 @@
 </ul>
 <!-- Body-->
 
-<body class="grey darken-3">
+<body>
     <nav class="nav-wrapper light-blue darken-1">
         <a href="#" data-activates="slide-out" class="button-collapse show-on-large">
             <i class="material-icons">menu</i>
@@ -82,7 +90,7 @@
         <a href="#" class="brand-logo center">DamIT</a>
     </nav>
     <!--fullscreen water designs custom code starts-->
-     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" style="display: none;">
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" style="display: none;">
         <symbol id="wave">
             <path d="M420,20c21.5-0.4,38.8-2.5,51.1-4.5c13.4-2.2,26.5-5.2,27.3-5.4C514,6.5,518,4.7,528.5,2.7c7.1-1.3,17.9-2.8,31.5-2.7c0,0,0,0,0,0v20H420z"></path>
             <path d="M420,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C326,6.5,322,4.7,311.5,2.7C304.3,1.4,293.6-0.1,280,0c0,0,0,0,0,0v20H420z"></path>
@@ -90,63 +98,75 @@
             <path d="M140,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C46,6.5,42,4.7,31.5,2.7C24.3,1.4,13.6-0.1,0,0c0,0,0,0,0,0l0,20H140z"></path>
         </symbol>
     </svg>
-    <div class="circle_new"> <!-- style="display: none" -->
-        <div class="liquid" id="Counter">
-            <h3 id= "percentage" class="white-text" style="font-size: 50px"></h3>
-        </div>
-        <div id="water" class="water">
-            <svg viewBox="0 0 560 20" class="water_wave water_wave_back">
-                <use xlink:href="#wave"></use>
-            </svg>
-            <svg viewBox="0 0 560 20" class="water_wave water_wave_front">
-                <use xlink:href="#wave"></use>
-            </svg>
-        </div>
+    <div class="circle_new">
+        <!-- style="display: none" -->
         <div class="riverbed">
+            <div class="liquid" id="Counter">
+                <h2 id="percentage" style="color:#000"></h2>
+                <br>
+                <!--white-text-->
+            </div>
+            <center>
+                <div class="total">
+                    <h2 id="total"></h2>
+                    <!--white-text-->
+                </div>
+            </center>
+            <div id="water" class="water">
+                <svg viewBox="0 0 560 20" class="water_wave water_wave_back">
+                    <use xlink:href="#wave"></use>
+                </svg>
+                <svg viewBox="0 0 560 20" class="water_wave water_wave_front">
+                    <use xlink:href="#wave"></use>
+                </svg>
+            </div>
+            <center>
+                <button class="btn-floating btn-large pulse red sosbtn" id="sos" type="submit" name="action">
+                    <h5 style="line-height: 10px;">SOS</h5>
+                </button>
+            </center>
         </div>
     </div>
-   <!--  <div class="riverbed">
-        hi
-    </div> -->
     <!--fullscreen custom code ends here-->
-                    <div>
-                        <input type="text" id="txtLevel" value="50" style="display: none;" placeholder="Select Water Level"/>
-                        <button type="button" id="btnShow" value="Show" style="display: none;" onclick="fillwater(document.getElementById('txtLevel').value)">Show</button>
-                    </div>
-<script>
-    function fillwater(fillno, showTextContainerId) {
-        var water = document.getElementById("water");
-        var percent = 0;
-        var interval;
-        interval = setInterval(function () {
-            percent++;
-            if (showTextContainerId !== undefined) { document.getElementById(showTextContainerId).innerHTML = percent + '%'; }
-            if(percent>90)
-            {
-               setInterval(blinker, 1000);
-           }
-           water.style.transform = 'translate(0' + ',' + (100 - percent) + '%)';
-           if (percent == parseInt(fillno)) {
-               clearInterval(interval);
-           }
-       }, 60);
-    }
-    function blinker() {
-        $('.circle_new').css({"animation-name":"blinker","animation-duration":" 1s","animation-timing-function":" linear","animation-iteration-count":"infinite"});
-    }
+    <div>
+        <input type="text" id="txtLevel" value="50" style="display: none;" placeholder="Select Water Level" />
+        <button type="button" id="btnShow" value="Show" style="display: none;" onclick="fillwater(document.getElementById('txtLevel').value)">Show</button>
+    </div>
+    <script>
+        function fillwater(fillno, showTextContainerId) {
+            var water = document.getElementById("water");
+            var percent = 0;
+            var interval;
+            interval = setInterval(function () {
+                percent++;
+                if (showTextContainerId !== undefined) { document.getElementById(showTextContainerId).innerHTML = percent + '%'; }
+                //   if(percent<15)
+                //   {
+                //     $('.riverbed').css("background-image","none");
+                //  }
+                // if(percent>15)
+                //   {
+                //     $('.riverbed').css("background-image","splash2.png");
+                //  }
+                water.style.transform = 'translate(0' + ',' + (100 - percent) + '%)';
+                if (percent == parseInt(fillno)) {
+                    clearInterval(interval);
+                }
+            }, 60);
+        }
     // function refresher(){
     //     $('.locate').css({"animation-name":"refresh","animation-duration":" 1s","animation-timing-function":" linear","animation-iteration-count":"infinite"});
     // }
-</script>
-  <!--   <script type="text/javascript">
+    </script>
+    <!--   <script type="text/javascript">
                         $("#refresh-button").click(function(){
                     </script> -->
-                    <script>
+    <script>
         //Added document.ready
         $(document).ready(function () {
             $(".button-collapse").sideNav();
             $('select').material_select();
-            var datastring = "email="+localStorage.getItem('username');
+            var datastring = "email=" + localStorage.getItem('username');
             $.ajax({
                 type: 'post',
                 async: false,
@@ -154,52 +174,68 @@
                 url: 'http://www.occasionz.in/damit/mainPage.php',
                 success: function (response) {
                     a = JSON.parse(response);
-                    $('#percentage').text(a[0]+"%");
-                    $('#total').text( a[1]+"M");
+                    $('#percentage').text(a[0] + "%");
+                    $('#total').text(a[1] + "M");
                     $('#txtLevel').val(a[0]);
                     $('#btnShow').trigger('click');
-                    localStorage.setItem("damname",a[3]);
+                    localStorage.setItem("damname", a[3]);
                     console.log(a[0]);
                 }
             });
-            function refresher(){
-                console.log("inside refresher");
-                 $('#btnShow').trigger('click');
-                 $("#refresh-button").removeClass("animate-refresh");
-                 $("#refresh-button").css({"opacity":"1","pointer-events":"auto"});
-            }
-            $("#refresh-button").click(function(){
-             $.ajax({
-                type: 'post',
-                async: false,
-                data: datastring,
-                beforeSend: function() {
-                  $("#refresh-button").addClass("animate-refresh");
-              },
-              url: 'http://www.occasionz.in/damit/mainPage.php',
-              success: function (response) {
-                a = JSON.parse(response);
-              $('#percentage').text(a[0]+"%");
-                $('#total').text( a[1]+"M");
-                $('#txtLevel').val(a[0]);
-                $("#refresh-button").css({"opacity":"0.3","pointer-events":"none"});
-               setTimeout(refresher,5000);
-            }
-        });
-         });
+            $("#refresh-button").click(function () {
+                $.ajax({
+                    type: 'post',
+                    async: false,
+                    data: datastring,
+                    beforeSend: function () {
+                        $("#refresh-button").addClass("animate-refresh");
+                    },
+                    url: 'http://www.occasionz.in/damit/mainPage.php',
+                    success: function (response) {
+                        a = JSON.parse(response);
+                        $('#percentage').text(a[0] + "%");
+                        $('#total').text(a[1] + "M");
+                        $('#txtLevel').val(a[0]);
+                        $("#refresh-button").css({ "opacity": "0.3", "pointer-events": "none" });
+                        setTimeout(refresher, 5000);
+                    }
+                });
+            });
         });
     </script>
     <script>
-        $(document).ready(function(){
-          $("#logout").click(function(){
-        //e.preventDefault();
-        console.log("click logout");
-        localStorage.removeItem("username");
-        localStorage.setItem("loggedin","0");
-        window.location.href = "login.html";
-    });
-      });
-  </script>
+        $(document).ready(function () {
+            $("#logout").click(function () {
+                //e.preventDefault();
+                console.log("click logout");
+                localStorage.removeItem("username");
+                localStorage.setItem("loggedin", "0");
+                window.location.href = "login.html";
+            });
+            $("#sos").click(function () {
+                navigator.geolocation.getCurrentPosition(onSuccess, onError);
+
+                var onSuccess = function (position) {
+                    datastringsos = "latitude=" + position.coords.latitude + "&longitude=" + position.coords.longitude + "mobile_no" + localStorage.getItem('contact');
+                    $.ajax({
+                        type: 'post',
+                        async: false,
+                        data: datastringsos,
+                        url: 'http://www.occasionz.in/damit/userSOS.php',
+                        success: function (response) {
+                            console.log(response);
+                            alert("Your current location is sent to the concerned authority. Stay safe !!");
+                        }
+                    });
+                };
+
+                var onError = function (error) {
+                    console.log(error);
+                    alert("There seems to be a problem ! Please try again ! Stay Safe !!");
+                };
+            });
+        });
+    </script>
 </body>
 
 </html>

@@ -44,15 +44,12 @@
 	<script>
 		var player = localStorage.getItem("player");
 		console.log(player);
-		alert(player);
 		$(document).ready(function() {
 			if (localStorage.getItem("loggedin") == "1") {
 				window.location.href = "nodalview.html";
 			}
-			alert("1230");
 			var player = localStorage.getItem("player");
 			console.log(player);
-			alert(player);
 			$('.modal').modal();
 
 		});

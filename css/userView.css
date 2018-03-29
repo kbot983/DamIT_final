@@ -1,0 +1,196 @@
+ *, *:before, *:after {
+            box-sizing: border-box;
+            outline: none;
+        }
+        .circle_new {
+           
+            border: 2px solid transparent;
+            height:92%;
+            width:100%;
+            position: relative;
+            overflow: hidden;
+            transform: translate(0, 0);
+        }
+              .circle_new .liquid {
+                position: absolute;
+                left: 0;
+                top: 0;
+                z-index: 3;
+                width: 100%;
+                height: 100%;
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                display: -webkit-flex;
+                -webkit-box-align: center;
+                -webkit-align-items: center;
+                -ms-flex-align: center;
+                align-items: center;
+                -webkit-box-pack: center;
+                -webkit-justify-content: center;
+                -ms-flex-pack: center;
+                justify-content: center;
+                color: #fff;
+                font-size: 64px;
+            }
+
+            .circle_new .water {
+                position: absolute;
+                left: 0;
+                top: 0;
+                z-index: 2;
+                width: 100%;
+                height: 100%;
+                -webkit-transform: translate(0, 100%);
+                transform: translate(0, 100%);
+                background: #039be5;
+                opacity: 0.5;
+            }
+
+            .circle_new .water_wave {
+                width: 200%;
+                position: absolute;
+                bottom: 100%;
+            }
+
+            .circle_new .water_wave_back {
+                right: 0;
+                fill: #C7EEFF;
+                -webkit-animation: wave-back 3s infinite linear;
+                animation: wave-back 3s infinite linear;
+            }
+
+            .circle_new .water_wave_front {
+                left: 0;
+                fill: #039be5;
+                margin-bottom: -1px;
+                -webkit-animation: wave-front 1.5s infinite linear;
+                animation: wave-front 1.5s infinite linear;
+            }
+
+        @-webkit-keyframes wave-front {
+            100% {
+                -webkit-transform: translate(-50%, 0);
+                transform: translate(-50%, 0);
+            }
+        }
+
+        @keyframes wave-front {
+            100% {
+                -webkit-transform: translate(-50%, 0);
+                transform: translate(-50%, 0);
+            }
+        }
+
+        @-webkit-keyframes wave-back {
+            100% {
+                -webkit-transform: translate(50%, 0);
+                transform: translate(50%, 0);
+            }
+        }
+
+        @keyframes wave-back {
+            100% {
+                -webkit-transform: translate(50%, 0);
+                transform: translate(50%, 0);
+            }
+        }
+        .txt {
+            position: absolute;
+        }
+   .blink_me {
+    -webkit-animation-name: blinker;
+    border: 6px solid #ED4337;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+
+    -moz-animation-name: blinker;
+    border: 6px solid #ED4337;
+    -moz-animation-duration: 1s;
+    -moz-animation-timing-function: linear;
+    -moz-animation-iteration-count: infinite;
+
+    animation-name: blinker;
+    animation-duration: 1s;
+    border: 6px solid #ED4337;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@-moz-keyframes blinker {  
+    0% {  box-shadow: 0 0 15px  #ED4337; }
+    50% {  box-shadow: 0 0 0px  #ED4337; }
+    100% {  box-shadow: 0 0 15px  #ED4337; }
+}
+
+@-webkit-keyframes blinker {  
+   0% {  box-shadow: 0 0 15px  #ED4337; }
+    50% {  box-shadow: 0 0 0px  #ED4337; }
+    100% {  box-shadow: 0 0 15px  #ED4337; }
+}
+
+@keyframes blinker {  
+    0% {  box-shadow: 0 0 50px #ED4337; }
+    50% {  box-shadow: 0 0 0px  #ED4337; }
+    100% {  box-shadow: 0 0 50px  #ED4337; }
+}
+.locate
+{
+    margin-left: 50%;
+    color:#ddd;
+    font-size: 3em;
+    margin-top: -5%; 
+
+}
+.btn-large
+{
+    margin:2%; 
+}
+.animate-refresh
+{
+    -webkit-animation-name: refresh;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+
+    -moz-animation-name: refresh;
+    -moz-animation-duration: 1s;
+    -moz-animation-timing-function: linear;
+    -moz-animation-iteration-count: infinite;
+
+    animation-name: refresh;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+@-moz-keyframes refresh{  
+   from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+@-webkit-keyframes refresh {  
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+@keyframes refresh {  
+   from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+.riverbed
+{
+    background-image:url("splash2.png"); 
+    height: 95%;
+    max-width: 100%;
+    background-position:right bottom;
+    background-repeat: no-repeat;
+    background-size:100%;
+}
+.sosbtn
+{
+    position: absolute;
+    bottom:10%;
+    right: 2%;
+    float: right;
+    z-index: 999;
+   /* font-family: didot;*/
+}
