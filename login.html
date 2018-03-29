@@ -65,7 +65,7 @@
 	// KEEP ENGLISH DEFAULT
 	localStorage.setItem("language", "english");
 	</script>
-	
+
 	<!--  -->
 	<form name="citizen_login_form">
 		<div class="container" id="cardpanel">
@@ -135,9 +135,10 @@
 						window.location.href = "nodalview.html";
 					}
 					if (response == "User") {
+						var key = document.forms["citizen_login_form"]["uemail"].value;
 						localStorage.setItem("username", key);
 						localStorage.setItem("loggedin", "2");
-						window.location.href = "userview.html";
+						window.location.href = "User_Index.html";
 					}
 					if (response == "Error") {
 						alert("Invalid emaild or password !");

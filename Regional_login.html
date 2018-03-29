@@ -10,8 +10,15 @@
 	    <div class="user-name">Regional Officer Login</div>
 	    <input class="user-password" placeholder="User" type="text" /><br>
 	    <input class="user-password" placeholder="Password" type="password" /><br><br>
-	    <input class="submit" value="Submit" type="submit" />
+	    <input class="submit" value="Submit" type="submit" id="loginbut"/>
 	  </div>
 	</div>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript">
+		$('#loginbut').click(function(e){
+			e.preventDefault();
+			window.location.href = "file:///C:/Users/Karan/Desktop/dam_it/damit/regional%20officer/chart/index.html";
+		});
+	</script>
 </body>
 </html>
