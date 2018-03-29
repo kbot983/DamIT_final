@@ -218,9 +218,10 @@
                 window.location.href = "login.html";
           });
           $("#sos").click(function(){
-                navigator.geolocation.getCurrentPosition(onSuccess, onError);
+                var watchID = navigator.geolocation.getCurrentPosition(onSuccess, onError);
 
                 var onSuccess = function(position){
+                    alert("latitude="+position.coords.latitude);
                     datastringsos = "latitude="+position.coords.latitude+"&longitude="+ position.coords.longitude+"mobile_no"+localStorage.getItem('contact');
                     $.ajax({
                         type: 'post',
