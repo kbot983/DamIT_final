@@ -14,7 +14,7 @@
             }
             // GETTING LANGUAGE
             //var lang = localStorage.getItem("language");
-            var lang = "english";
+            var lang = "marathi";
             switch (lang) {
                 case "english":
                     message.email = "Email Id";
@@ -28,6 +28,13 @@
                     message.signup = "साइन अप करें";
                     message.login = "लॉग इन करें";
                     break;
+                case "marathi":
+                    message.email = "ईमेल आईडी";
+                    message.password = "पासवर्ड";
+                    message.signup = "साइन अप करा";
+                    message.login = "लॉग इन करा";
+                    break;
+
             }
             $('#langemail').text(message.email);
             $('#langpass').text(message.password);
@@ -60,6 +67,12 @@
                     message.enter = "ओटीपी दर्ज करें";
                     message.submit = "आगामी";
                     break;
+                case "marathi":
+                    message.enterMobile = "मोबाइल क्र.";
+                    message.getOtp = "ओटीपी मिळवा";
+                    message.enter = "प्रविष्ट करा";
+                    message.submit = "सबमिट करा";
+                    break;
             }
             $('#langmobileenter').text(message.enterMobile);
             $('#submit').html(message.getOtp);
@@ -67,7 +80,7 @@
             $('#langenter').text(message.enter);
             $('#otpsubmit').text(message.submit);
             $('#otpsubmit').append(`<i class="material-icons right">send</i>`);
-            
+
             break;
 
         // SIGNUP.HTML
@@ -97,7 +110,24 @@
                     message.register = "Register";
                     break;
                 case "hindi":
-
+                    message.first = "नाम का पहला भाग";
+                    message.last = "कुलनाम";
+                    message.email = "ईमेल";
+                    message.pass = "पासवर्ड ";
+                    message.confpass = "पासवर्ड की पुष्टि कीजिये";
+                    message.zipcode = "पिन कोड";
+                    message.contact = "संपर्क संख्या";
+                    message.register = "साइन अप करें";
+                    break;
+                case "marathi":
+                    message.first = "पहिले नाव";
+                    message.last = "आडनाव";
+                    message.email = "ईमेल";
+                    message.pass = "पासवर्ड ";
+                    message.confpass = "पासवर्डची पुष्टी करा";
+                    message.zipcode = "पिन कोड";
+                    message.contact = "संपर्क क्र.";
+                    message.register = "साइन अप करा";
                     break;
             }
             $('#langfirst').text(message.first);
@@ -149,8 +179,8 @@
         // NODALVIEW.HTML
         case "5":
             var message = {
-               schedule: "",
-               instant: ""
+                schedule: "",
+                instant: ""
             }
             // GETTING LANGUAGE
             //var lang = localStorage.getItem("language");
