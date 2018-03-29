@@ -60,7 +60,16 @@
 </head>
 
 
+<script src="./js/language.js"></script>
 <body class="bg-color">
+	<!-- ADDED NOW LANGUAGE SUPPORT -->
+	<input type="text" value="1" id="language" style="display:none;">
+	<script>
+	// KEEP ENGLISH DEFAULT
+	localStorage.setItem("language", "english");
+	</script>
+	
+	<!--  -->
 	<form name="citizen_login_form">
 		<div class="container" id="cardpanel">
 			<div class="card-panel white">
@@ -68,22 +77,22 @@
 				<div class="row">
 					<div class="input-field col s12">
 						<input id="uemail" type="email" name="uemail" class="validate">
-						<label for="username">Email</label>
+						<label for="username" id="langemail">Email</label>
 					</div>
 					<div class="input-field col s12">
 						<input id="pass" type="password" name="pass" class="validate">
-						<label for="password">Password</label>
+						<label for="password" id="langpass">Password</label>
 					</div>
 
 
 					<div class="col s7 "> <br>
-						<h5><a href="otp.html" class="cyan-text">Sign Up</a></h5>
+						<h5><a href="otp.html" class="cyan-text" id="langsignup">Sign Up</a></h5>
 						<br>
 
 					</div>
 
 					<div class="col s12">
-						<button class="btn waves-effect waves-light cyan" type="submit" value="Register Now" />Login
+						<button class="btn waves-effect waves-light cyan" id="langlogin" type="submit" value="Register Now" />Login
 						<i class="material-icons right">send</i>
 						</button>
 					</div>

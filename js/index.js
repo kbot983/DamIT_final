@@ -18,39 +18,38 @@
  */
 var app = {
     // Application Constructor
-    initialize: function() {
+    initialize: function () {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
     },
+
     // deviceready Event Handler
     //
     // Bind any cordova events here. Common events are:
     // 'pause', 'resume', etc.
-    onDeviceReady: function() {
+    onDeviceReady: function () {
         this.receivedEvent('deviceready');
         window.plugins.OneSignal
             .startInit("819701a3-1283-4581-8ad8-c1836861116c")
             .endInit();
 
-        window.plugins.OneSignal.getIds(function(ids){
-            localStorage.setItem("player", ids.userId);
-            alert(ids.userId);
+        window.plugins.OneSignal.getIds(function (ids) {
+            $player = ids.userId;
+            localStorage.setItem("player", $player);
         });
+        
     },
 
     // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
+    receivedEvent: function (id) {
+        // var parentElement = document.getElementById(id);
+        // var listeningElement = parentElement.querySelector('.listening');
+        // var receivedElement = parentElement.querySelector('.received');
 
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
+        // listeningElement.setAttribute('style', 'display:none;');
+        // receivedElement.setAttribute('style', 'display:block;');
 
-        console.log('Received Event: ' + id);
-
-
+        // console.log('Received Event: ' + id);
     }
-
 };
 
 app.initialize();

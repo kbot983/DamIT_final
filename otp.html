@@ -2,6 +2,8 @@
 
 <head>
   <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script src="./js/language.js" type="text/javascript"></script>
+
 	<link rel="stylesheet" href="materialize-v0.100.2/materialize/css/materialize.min.css">
 	<script src="materialize-v0.100.2/materialize/js/materialize.min.js"></script>
 	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -27,7 +29,14 @@
 </head>
 
 <body class="grey lighten-2">
-
+  <!-- ADDED NOW LANGUAGE SUPPORT -->
+  <input type="text" value="2" id="language" style="display:none;">
+  <script>
+  // KEEP ENGLISH DEFAULT
+  localStorage.setItem("language", "english");
+  </script>
+  
+  <!--  -->
   <form name="otp_form">
     <div class="container" id="cardpanel">
       <div class="card-panel white">
@@ -35,7 +44,7 @@
         <div class="row">
           <div class="input-field col s12">
             <input id="mobile_no" type="text" name="mobile_no">
-            <label for="mobile_no">Enter your mobile number</label>
+            <label for="mobile_no" id="langmobileenter">Enter your mobile number</label>
           </div>
         </div>
         <div class="row">
@@ -53,7 +62,7 @@
           <div class="row">
             <div class="input-field col s12">
               <input id="otp" type="text" name="otp">
-              <label for="otp">Enter Otp</label>
+              <label for="otp" id="langenter">Enter Otp</label>
             </div>
           </div>
           <div class="row">
