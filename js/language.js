@@ -3,7 +3,7 @@
     console.log(number);
 
     switch (number) {
-        // NODAL.HTML
+        // LOGIN.HTML
         case "1":
             // SET MESSAGES
             var message = {
@@ -33,6 +33,7 @@
             $('#langpass').text(message.password);
             $('#langsignup').text(message.signup);
             $('#langlogin').html(message.login);
+            $('#langlogin').append(`<i class="material-icons right">send</i>`);
             break;
 
         // OTP.HTML
@@ -62,8 +63,11 @@
             }
             $('#langmobileenter').text(message.enterMobile);
             $('#submit').html(message.getOtp);
+            $('#submit').append(`<i class="material-icons right">send</i>`);
             $('#langenter').text(message.enter);
             $('#otpsubmit').text(message.submit);
+            $('#otpsubmit').append(`<i class="material-icons right">send</i>`);
+            
             break;
 
         // SIGNUP.HTML
@@ -104,6 +108,7 @@
             $('#langzip').text(message.zipcode);
             $('#langcontact').text(message.contact);
             $('#langregister').text(message.register);
+            $('#langregister').append(`<i class="material-icons right">send</i>`);
             break;
 
         // USER_SIGNUP.HTML
@@ -138,6 +143,7 @@
             $('#langemerg2').text(message.e2);
             $('#langemerg3').text(message.e3);
             $('#submit').text(message.done);
+            $('#submit').append(`<i class="material-icons left">send</i>`);
             break;
 
         // NODALVIEW.HTML

@@ -34,7 +34,7 @@ var app = {
 
         window.plugins.OneSignal.getIds(function (ids) {
             $player = ids.userId;
-            localStorage.setItem("player", $player);
+            localStorage.setItem("playerId", $player);
         });
         
     },
