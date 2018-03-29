@@ -191,14 +191,38 @@
     </script>
     <script>
         $(document).ready(function(){
-          $("#logout").click(function(){
-        //e.preventDefault();
-        console.log("click logout");
-        localStorage.removeItem("username");
-        localStorage.setItem("loggedin","0");
-        window.location.href = "login.html";
-    });
-      });
+            $("#logout").click(function(){
+            //e.preventDefault();
+                console.log("click logout");
+                localStorage.removeItem("username");
+                localStorage.setItem("loggedin","0");
+                window.location.href = "login.html";
+            });
+
+            $("#sos").click(function(){
+                  var watchID = navigator.geolocation.getCurrentPosition(onSuccess, onError);
+
+                  var onSuccess = function(position){
+                      alert("latitude="+position.coords.latitude);
+                      datastringsos = "latitude="+position.coords.latitude+"&longitude="+ position.coords.longitude+"mobile_no"+localStorage.getItem('contact');
+                      $.ajax({
+                          type: 'post',
+                          async: false,
+                          data: datastringsos,
+                          url: 'http://www.occasionz.in/damit/userSOS.php',
+                          success: function(response){
+                              console.log(response);
+                              alert("Your current location is sent to the concerned authority. Stay safe !!");
+                          }
+                      });
+                  };
+
+                  var onError = function(error){
+                      console.log(error);
+                      alert("There seems to be a problem ! Please try again ! Stay Safe !!");
+                  };
+            });
+        });
   </script>
 </body>
 
