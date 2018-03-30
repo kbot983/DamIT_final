@@ -34,7 +34,24 @@
                     message.signup = "साइन अप करा";
                     message.login = "लॉग इन करा";
                     break;
-
+                case "gujarati":
+                    message.email = "ઇમેઇલ આઈડી";
+                    message.password = "પાસવર્ડ";
+                    message.signup = "સાઇન અપ કરો";
+                    message.login = "લૉગિન";
+                    break;
+                case "tamil":
+                    message.email = "மின்னஞ்சல் முகவரி";
+                    message.password = "கடவுச்சொல்";
+                    message.signup = "இணைந்ததற்கு";
+                    message.login = "உள் நுழை";
+                    break;
+                case "telugu":
+                    message.email = "ఇమెయిల్";
+                    message.password = "పాస్వర్డ్";
+                    message.signup = "చేరడం";
+                    message.login = "లాగిన్";
+                    break;
             }
             $('#langemail').text(message.email);
             $('#langpass').text(message.password);
@@ -72,6 +89,24 @@
                     message.getOtp = "ओटीपी मिळवा";
                     message.enter = "प्रविष्ट करा";
                     message.submit = "सबमिट करा";
+                    break;
+                case "gujarati":
+                    message.enterMobile = "મોબાઇલ નંબર";
+                    message.getOtp = "ઓટીપી મેળવો";
+                    message.enter = "દાખલ કરો";
+                    message.submit = "મોકલવું";
+                    break;
+                case "tamil":
+                    message.enterMobile = "மொபைல் எண்";
+                    message.getOtp = "OTP கிடைக்கும் ";
+                    message.enter = "நுழைய";
+                    message.submit = "சமர்ப்பிக்க";
+                    break;
+                case "telugu":
+                    message.enterMobile = "మొబైల్ నంబర్";
+                    message.getOtp = "otp ను పొందండి";
+                    message.enter = "నమోదు";
+                    message.submit = "లొంగు";
                     break;
             }
             $('#langmobileenter').text(message.enterMobile);
@@ -129,6 +164,36 @@
                     message.contact = "संपर्क क्र.";
                     message.register = "साइन अप करा";
                     break;
+                case "gujarati":
+                    message.first = "મૂળ નામ";
+                    message.last = "અટક";
+                    message.email = "ઇમેઇલ";
+                    message.pass = "પાસવર્ડ";
+                    message.confpass = "પાસવર્ડની પુષ્ટિ કરો";
+                    message.zipcode = "પિન કોડ";
+                    message.contact = "સંપર્ક કરો";
+                    message.register = "નોંધણી ";
+                    break;
+                case "tamil":
+                    message.first = "முதல் பெயர்";
+                    message.last = "குடும்ப";
+                    message.email = "மின்னஞ்சல்";
+                    message.pass = "கடவுச்சொல்";
+                    message.confpass = "கடவுச்சொல்லை உறுதிப்படுத்துக";
+                    message.zipcode = "ஜிப்குறியீட்டின்";
+                    message.contact = "தொடர்பு";
+                    message.register = "பதிவு";
+                    break;
+                case "telugu":
+                    message.first = "మొదటి పేరు";
+                    message.last = "మొదటి పేరు";
+                    message.email = "ఇమెయిల్";
+                    message.pass = " పాస్వర్డ్";
+                    message.confpass = "పాస్వర్డ్ను నిర్ధారించండి";
+                    message.zipcode = "జిప్కోడ్";
+                    message.contact = "పరిచయం";
+                    message.register = "నమోదు";
+                    break;
             }
             $('#langfirst').text(message.first);
             $('#langlast').text(message.last);
@@ -164,7 +229,45 @@
                     message.done = "Next";
                     break;
                 case "hindi":
+                    message.state = "राज्य चुनें";
+                    message.dam = "बांध चुनें";
+                    message.e1 = "आपातकालीन संपर्क क्र.";
+                    message.e2 = "आपातकालीन संपर्क क्र.";
+                    message.e3 = "आपातकालीन संपर्क क्र";
+                    message.done = "बाद";
+                    break;
+                case "marathi":
+                    message.state = "राज्य निवडा";
+                    message.dam = "धरण निवडा";
+                    message.e1 = "आपत्कालीन नंबर 1";
+                    message.e2 = "आपत्कालीन नंबर 2";
+                    message.e3 = "आपत्कालीन नंबर 3";
+                    message.done = "समाप्त";
+                    break;
 
+                case "gujarati":
+                    message.state = "રાજ્ય પસંદ કરો";
+                    message.dam = "બંધ પસંદ કરો";
+                    message.e1 = "આકસ્મિક આવશ્યકતા નં";
+                    message.e2 = "આકસ્મિક આવશ્યકતા નં";
+                    message.e3 = "આકસ્મિક આવશ્યકતા નં";
+                    message.done = "થાઈ ગયું";
+                    break;
+                case "tamil":
+                    message.state = "மாநில தேர்வு";
+                    message.dam = "அணை தேர்ந்தெடுக்கவும்";
+                    message.e1 = "அவசர எண் 1";
+                    message.e2 = "அவசர எண் 2";
+                    message.e3 = "அவசர எண் 3";
+                    message.done = "முடிந்ததாகக்";
+                    break;
+                case "telugu":
+                    message.state = "రాష్ట్ర ఎంచుకోండి";
+                    message.dam = "ఎంచుకోండి డ్యామ్";
+                    message.e1 = "అత్యవసర సంఖ్య 1";
+                    message.e2 = "అత్యవసర సంఖ్య 2";
+                    message.e3 = "అత్యవసర సంఖ్య 3";
+                    message.done = "పూర్తి";
                     break;
             }
             $('#langstate').text(message.state);
@@ -191,7 +294,24 @@
                     message.instant = "Instant";
                     break;
                 case "hindi":
-
+                    message.schedule = "अनुसूची";
+                    message.instant = "तुरंत प्रसारण";
+                    break;
+                case "marathi":
+                    message.schedule = "रेषाकृती";
+                    message.instant = "झटपट प्रसारित";
+                    break;
+                case "gujarati":
+                    message.schedule = "અનુસૂચિ";
+                    message.instant = "તાત્કાલિક સંદેશ";
+                    break;
+                case "tamil":
+                    message.schedule = "அனுபந்தம் ";
+                    message.instant = "உடனடி செய்தி";
+                    break;
+                case "telugu":
+                    message.schedule = "వివరాల జాబితా";
+                    message.instant = "తక్షణ సందేశం";
                     break;
             }
             $('#autoTrigger1').text(message.schedule);

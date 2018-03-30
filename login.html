@@ -48,6 +48,9 @@
 			if (localStorage.getItem("loggedin") == "1") {
 				window.location.href = "nodalview.html";
 			}
+			if (localStorage.getItem("loggedin") == "2") {
+				window.location.href = "nodalview.html";
+			}
 			var player = localStorage.getItem("player");
 			console.log(player);
 			$('.modal').modal();
@@ -138,7 +141,8 @@
 						var key = document.forms["citizen_login_form"]["uemail"].value;
 						localStorage.setItem("username", key);
 						localStorage.setItem("loggedin", "2");
-						window.location.href = "User_Index.html";
+						window.location.href = "userMapIndex.html";
+					
 					}
 					if (response == "Error") {
 						alert("Invalid emaild or password !");

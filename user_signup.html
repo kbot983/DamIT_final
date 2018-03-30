@@ -192,7 +192,9 @@
 				var emergency2 = $('#emerg2').val();
 				var emergency3 = $('#emerg3').val();
 				var mobile_no = localStorage.getItem('contact');
-
+				localStorage.setItem("emergency", $emergency);
+				localStorage.setItem("emergency2", $emergency2);
+				localStorage.setItem("emergency3", $emergency3);
 				console.log(dam_name);
 				$.ajax({
 					type: 'post',
@@ -200,8 +202,8 @@
 					data: { mobile_no: mobile_no, language: language, emergency: emergency, dam_name: dam_name, emergency2: emergency2, emergency3: emergency3 },
 					success: function (response) {
 						console.log(response);
-						if(response == "success"){
-							window.location.href = "User_Index.html";
+						if(response == "Success"){
+							window.location.href = "userMapIndex.html";
 							localStorage.setItem("loggedin", "1");
 						}
 					}

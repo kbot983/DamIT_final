@@ -1,0 +1,109 @@
+<html>
+	<head>
+		 <!--<script src="http://code.jquery.com/jquery-1.9.1.js"></script>-->
+		 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+		 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    	  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+		<style>
+			#cardpanel{
+				padding-top:40%;
+			}
+			#logosize{
+				height:13%;
+				width:30%;
+			}
+
+		</style>
+		
+    </head>  
+		 
+	
+	<body style="background-image: url('./img/backTest.jpg');">
+		<div >
+		<form name="citizen_login_form" style="z-index:10">
+			<div class="container" id="cardpanel">
+			    <div class="card-panel white">
+					<center><img src="./img/logo.png" id="logosize"></center>
+				    <div class="row">
+						<div class="input-field col s12">
+					  <!-- Modal Structure -->
+					  <div id="modal1" class="modal">
+					    <div class="modal-content">
+					      <div class="collection">
+					        <a href="#!" class="collection-item active">English</a>
+					        <a href="#!" class="collection-item">Hindi</a>
+					        <a href="#!" class="collection-item">Marathi</a>
+					        <a href="#!" class="collection-item ">Gujarati</a>
+					        <a href="#!" class="collection-item">Tamil</a>
+					        <a href="#!" class="collection-item">Telugu</a>
+					        
+					        
+					      </div>
+					    </div>
+					    <div class="modal-footer">
+					      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+					    </div>
+					  </div>
+					  <!--modal ends-->
+						</div>
+						<center>
+						  <button class="bwaves-effect waves-teal btn-flat" type="submit" data-target="modal1" class="btn modal-trigger" value="Register Now"/>Select  Desired language
+							<i class="material-icons right">keyboard_arrow_right</i>
+							</button>
+							 
+
+						</center>					  
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+		<script type="text/javascript">
+			 $(document).ready(function() {
+			 	 $('.modal').modal();
+				$('select').material_select();
+			  });
+					  
+				$('form').on('submit', function (e) {		
+		        e.preventDefault();		
+		        var x = document.forms["citizen_login_form"]["uemail"].value;
+          		if (x == "") {
+              		alert("Email required!");
+              		return false;
+          		}
+          		var x = document.forms["citizen_login_form"]["pass"].value;
+          		if (x == "") {
+              		alert("Password required!");
+              		return false;
+          		}
+		          $.ajax({
+		            type: 'post',
+		            //url: 'http://localhost/appon/citizen_login.php',
+		            url: 'https://appon.000webhostapp.com/citizen_login.php',
+		            cache: false,
+		            data: $('form').serialize(),
+		            success: function (response) {
+		            	console.log(response);
+		            	if (response=="done") {
+		            		//alert('Logging in!');
+		              		location.href = "appointment_request.html";
+		            	}
+		            	if (response=="otp") {
+		            		alert('OTP not verified!');
+		            		location.href = "verify.html";
+		            	}
+		            	if (response=="invalid") {
+		            		alert('Invalid email or password!');
+		            		document.forms["citizen_login_form"]["pass"].value = "";
+		            	}	
+		              
+		            }
+		          });		
+		        });
+		</script>        
+	</body>
+</html>
