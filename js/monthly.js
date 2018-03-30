@@ -45,7 +45,8 @@ Monthly 2.2.0 by Kevin Thornbloom is licensed under a Creative Commons Attributi
 				weekStartsOnMonday = options.weekStart === "Mon" || options.weekStart === 1 || options.weekStart === "1",
 				primaryLanguageCode = locale.substring(0, 2).toLowerCase(),
                 extraval,cnt,
-                CountMarkup = "Appointments";    
+                CountMarkup = "Water Release",
+                HolidayMarkup = "Holiday";
 
             if (options.maxWidth !== false) {
                 $(parent).css("maxWidth", options.maxWidth);
@@ -195,6 +196,7 @@ Monthly 2.2.0 by Kevin Thornbloom is licensed under a Creative Commons Attributi
                     endDayNumber = startDay,
                     showEventTitleOnDay = startDay,
                     startsThisMonth = startMonth === setMonth && startYear === setYear,
+                    showtype = _getEventDetail(event, "showtype"),
                     happensThisMonth = startsThisMonth;
 
                 if (fullEndDate) {
@@ -290,9 +292,10 @@ Monthly 2.2.0 by Kevin Thornbloom is licensed under a Creative Commons Attributi
                         .append(markupListEvent);  
                     }                    
                 }
+                var ssp = "";
                 if (options.showcount == true) {
-               
-                    statenms = cnt + ' ' + CountMarkup;
+                    if (eventtype == "0") { ssp = HolidayMarkup; } else { ssp = CountMarkup;}
+                    statenms = cnt + ' ' + ssp;
                     pn.empty().append(
                             markupDayStart
                             + attr("class", "monthly-event-indicator" + customClass
