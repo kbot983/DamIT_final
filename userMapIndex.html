@@ -2,12 +2,19 @@
 	<head>
 		 <!--<script src="http://code.jquery.com/jquery-1.9.1.js"></script>-->
 		 <script type="text/javascript" src="./js/jquery.min.js"></script>
-        <script type"text/javascript" src="./js/offlinemode.js"></script> 
+        <script type"text/javascript" src="./js/offlinemode.js"></script>
 		 <link rel="stylesheet" href="./css/materialize.min.css">
 		<script src="./js/materialize.min.js"></script>
 		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     	  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
    	</head>
+	<script>
+	   $(document).ready(function(){
+	     if(localStorage.getItem("loggedin") == "0"){
+	       window.location.href = "login.html";
+	   }
+	});
+	</script>
 <body>
 
 
@@ -68,7 +75,7 @@
     </li>
     <li>
         <a href="blog.html">Dam Guide</a>
-    </li> 
+    </li>
     <li>
         <a class='dropdown-button white' href='#' data-activates='dropdown1'>Change Language</a>
 
@@ -92,7 +99,7 @@
         </a>
         <a href="#" class="brand-logo center">DamIT</a>
     </nav>
-  
+
      <div class="fixed-action-btn">
   <a class="btn-floating btn-large waves-effect waves-light light-blue lighten-1 pulse" style="position:fixed; bottom:15;right:8;"><i class="material-icons">add</i></a>
     <ul>
@@ -100,7 +107,7 @@
       <li><a href="#modal1" class="btn-floating red" style="bottom:0;right:35;"><i class="material-icons">add_alert</i></a></li>
     </ul>
   </div>
-     
+
 <div id="googleMap" style="width:100%;height:95%;"></div>
 
 <script>
@@ -115,7 +122,7 @@ var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
 }
 </script>
 <script type="text/javascript">
-	       
+
         $(document).ready(function () {
         	$('.modal').modal();
             $(".button-collapse").sideNav();
@@ -128,6 +135,16 @@ var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
 To use this code on your website, get a free API key from Google.
 Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
 -->
-
+<script>
+	$(document).ready(function(){
+	  $("#logout").click(function(){
+	//e.preventDefault();
+	console.log("click logout");
+	localStorage.removeItem("username");
+	localStorage.setItem("loggedin","0");
+	window.location.href = "login.html";
+});
+  });
+</script>
 </body>
 </html>

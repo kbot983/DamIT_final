@@ -12,9 +12,15 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<script> 
+	<script>
 
 		$(document).ready(function () {
+			if (localStorage.getItem("loggedin") == "1") {
+				window.location.href = "nodalview.html";
+			}
+			if (localStorage.getItem("loggedin") == "2") {
+				window.location.href = "userMapIndex.html";
+			}
 			// function showpanel() {
 			// 	$('body').addClass('loaded');
 			// }
@@ -166,7 +172,7 @@
 			var checker = 0;
 			setInterval(function () {
 				var player = localStorage.getItem("playerId");
-				
+
 				// $	('#pla').val("ID:" + player);
 				if (checker == 0) {
 					if (player != null) {
