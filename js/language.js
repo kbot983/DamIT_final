@@ -1,6 +1,7 @@
 ﻿$(document).ready(function () {
     var number = $('#language').val();
     console.log(number);
+    var lang = localStorage.getItem("language");
 
     switch (number) {
         // LOGIN.HTML
@@ -13,8 +14,6 @@
                 login: ""
             }
             // GETTING LANGUAGE
-            //var lang = localStorage.getItem("language");
-            var lang = "marathi";
             switch (lang) {
                 case "english":
                     message.email = "Email Id";
@@ -70,7 +69,6 @@
             }
             // GETTING LANGUAGE
             //var lang = localStorage.getItem("language");
-            var lang = "english";
             switch (lang) {
                 case "english":
                     message.enterMobile = "Enter your mobile number";
@@ -132,7 +130,6 @@
             }
             // GETTING LANGUAGE
             //var lang = localStorage.getItem("language");
-            var lang = "english";
             switch (lang) {
                 case "english":
                     message.first = "First Name";
@@ -218,7 +215,6 @@
             }
             // GETTING LANGUAGE
             //var lang = localStorage.getItem("language");
-            var lang = "english";
             switch (lang) {
                 case "english":
                     message.state = "Select State";
@@ -287,7 +283,6 @@
             }
             // GETTING LANGUAGE
             //var lang = localStorage.getItem("language");
-            var lang = "english";
             switch (lang) {
                 case "english":
                     message.schedule = "Schedule";

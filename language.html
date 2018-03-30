@@ -1,10 +1,10 @@
 <html>
 	<head>
 		 <!--<script src="http://code.jquery.com/jquery-1.9.1.js"></script>-->
-		 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+		 <script type="text/javascript" src="./js/jquery.min.js"></script>
 
-		 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+		 <link rel="stylesheet" href="./css/materialize.min.css">
+		<script src="./js/materialize.min.js"></script>
 		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     	  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -16,7 +16,10 @@
 				height:13%;
 				width:30%;
 			}
-
+			.collection-item:hover
+			{
+				background: #ddd;
+			}
 		</style>
 		
     </head>  
@@ -34,24 +37,22 @@
 					  <div id="modal1" class="modal">
 					    <div class="modal-content">
 					      <div class="collection">
-					        <a href="#!" class="collection-item active">English</a>
-					        <a href="#!" class="collection-item">Hindi</a>
-					        <a href="#!" class="collection-item">Marathi</a>
-					        <a href="#!" class="collection-item ">Gujarati</a>
-					        <a href="#!" class="collection-item">Tamil</a>
-					        <a href="#!" class="collection-item">Telugu</a>
-					        
-					        
+					        <p class="collection-item idfetchp " id="english">English</a>
+					        <p class="collection-item idfetchp " id="hindi">Hindi</a>
+					        <p class="collection-item idfetchp " id="marathi">Marathi</a>
+					        <p class="collection-item idfetchp " id="gujarati">Gujarati</a>
+					        <p class="collection-item idfetchp " id="tamil">Tamil</a>
+					        <p class="collection-item idfetchp " id="telgu">Telugu</a>					        
 					      </div>
 					    </div>
 					    <div class="modal-footer">
-					      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+					      <p class=" waves-effect waves-green btn-flat" id="okay">Okay</a>
 					    </div>
 					  </div>
 					  <!--modal ends-->
 						</div>
 						<center>
-						  <button class="bwaves-effect waves-teal btn-flat" type="submit" data-target="modal1" class="btn modal-trigger" value="Register Now"/>Select  Desired language
+						  <button class="waves-effect waves-teal btn-flat" type="submit" data-target="modal1" class="btn modal-trigger" value="Register Now"/>Select  Desired language
 							<i class="material-icons right">keyboard_arrow_right</i>
 							</button>
 							 
@@ -66,44 +67,24 @@
 			 $(document).ready(function() {
 			 	 $('.modal').modal();
 				$('select').material_select();
+
+
+				$('.idfetchp').click(function(){
+					var pid = this.id;
+					$('.idfetchp').removeClass('active');
+					$('#'+pid).addClass('active');
+
+				});
+
+				$("#okay").click(function(){
+					$('#modal1').modal('close');
+					var lang = $('.active').attr('id');
+					localStorage.setItem('language',lang);
+					console.log(localStorage.getItem('language'));
+					window.location.href = "login.html";
+				});
+
 			  });
-					  
-				$('form').on('submit', function (e) {		
-		        e.preventDefault();		
-		        var x = document.forms["citizen_login_form"]["uemail"].value;
-          		if (x == "") {
-              		alert("Email required!");
-              		return false;
-          		}
-          		var x = document.forms["citizen_login_form"]["pass"].value;
-          		if (x == "") {
-              		alert("Password required!");
-              		return false;
-          		}
-		          $.ajax({
-		            type: 'post',
-		            //url: 'http://localhost/appon/citizen_login.php',
-		            url: 'https://appon.000webhostapp.com/citizen_login.php',
-		            cache: false,
-		            data: $('form').serialize(),
-		            success: function (response) {
-		            	console.log(response);
-		            	if (response=="done") {
-		            		//alert('Logging in!');
-		              		location.href = "appointment_request.html";
-		            	}
-		            	if (response=="otp") {
-		            		alert('OTP not verified!');
-		            		location.href = "verify.html";
-		            	}
-		            	if (response=="invalid") {
-		            		alert('Invalid email or password!');
-		            		document.forms["citizen_login_form"]["pass"].value = "";
-		            	}	
-		              
-		            }
-		          });		
-		        });
 		</script>        
 	</body>
 </html>
