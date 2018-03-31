@@ -204,37 +204,37 @@
         });
     </script>
     <script>
-        $(document).ready(function(){
-            $("#sos").click(function(){
-                  var onSuccess = function(position){
-                      alert("latitude="+position.coords.latitude);
-                      datastringsos = "latitude="+position.coords.latitude+"&longitude="+ position.coords.longitude+"&email="+localStorage.getItem('username');
-                      console.log(datastringsos);
-                      $.ajax({
-                          type: 'post',
-                          async: false,
-                          data: datastringsos,
-                          url: 'http://www.occasionz.in/damit/userSOS.php',
-                          success: function(response){
-                              console.log(response);
-                              alert("Your current location is sent to the concerned authority. Stay safe !!");
-                          }
-                      });
-                  };
+        $(document).ready(function () {
+            $("#sos").click(function () {
+                var onSuccess = function (position) {
+                    alert("latitude=" + position.coords.latitude);
+                    datastringsos = "latitude=" + position.coords.latitude + "&longitude=" + position.coords.longitude + "&email=" + localStorage.getItem('username');
+                    console.log(datastringsos);
+                    $.ajax({
+                        type: 'post',
+                        async: false,
+                        data: datastringsos,
+                        url: 'http://www.occasionz.in/damit/userSOS.php',
+                        success: function (response) {
+                            console.log(response);
+                            alert("Your current location is sent to the concerned authority. Stay safe !!");
+                        }
+                    });
+                };
 
-                  var onError = function(error){
-                      console.log(error);
-                      alert("There seems to be a problem ! Please try again ! Stay Safe !!");
-                  };
+                var onError = function (error) {
+                    console.log(error);
+                    alert("There seems to be a problem ! Please try again ! Stay Safe !!");
+                };
 
-                 navigator.geolocation.getCurrentPosition(onSuccess, onError, { maximumAge: 30000, timeout: 60000, enableHighAccuracy: true });
+                navigator.geolocation.getCurrentPosition(onSuccess, onError, { maximumAge: 30000, timeout: 60000, enableHighAccuracy: true });
             });
 
-            $("#logout").click(function(){
-            //e.preventDefault();
+            $("#logout").click(function () {
+                //e.preventDefault();
                 console.log("click logout");
                 localStorage.removeItem("username");
-                localStorage.setItem("loggedin","0");
+                localStorage.setItem("loggedin", "0");
                 window.location.href = "login.html";
             });
         });
