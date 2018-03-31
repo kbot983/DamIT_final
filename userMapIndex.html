@@ -148,6 +148,7 @@
                     <span class="white-text email">email@domain.com</span>
                 </a>
             </div>
+<<<<<<< HEAD
         </li>
         <li>
             <a href="User_Index.html">Home</a>
@@ -193,12 +194,54 @@
     </script>
     <!--login code ends-->
     <nav class="nav-wrapper light-blue darken-1">
+=======
+            <a href="userProfile.html">
+                <img class="circle" src="img/prsn.jpg">
+            </a>
+            <!--img/prsn.jpg"-->
+            <a href="userProfile.html">
+                <span class="white-text name">Chintan Popat</span>
+            </a>
+            <a href="userProfile.html">
+                <span class="white-text email">email@domain.com</span>
+            </a>
+        </div>
+    </li>
+    <li>
+        <a href="User_Index.html">Home</a>
+    </li>
+    <li>
+        <a href="UserSchedule.html">Schedule</a>
+    </li>
+    <li>
+        <a href="blog.html">Dam Guide</a>
+    </li>
+    <li>
+        <a class='dropdown-button white' href='#' data-activates='dropdown1'>Change Language</a>
+
+        <ul id='dropdown1' class='dropdown-content '>
+            <li><a href="#!" class="blue-text">Hindi</a></li>
+            <li><a href="#!" class="blue-text">English</a></li>
+            <li><a href="#!" class="blue-text">Gujarati</a></li>
+            <li><a href="#!" class="blue-text">Marathi</a></li>
+        </ul>
+    </li>
+    <li>
+        <div class="divider"></div>
+    </li>
+    <li>
+        <a class="waves-effect waves-light btn btn-flat" id="logout">Logout</a>
+    </li>
+</ul>
+ <nav class="nav-wrapper light-blue darken-1">
+>>>>>>> 531fdc22aaf8f963723d19cea8eb8c96807d9049
         <a href="#" data-activates="slide-out" class="button-collapse show-on-large">
             <i class="material-icons">menu</i>
         </a>
         <a href="#" class="brand-logo center">DamIT</a>
     </nav>
 
+<<<<<<< HEAD
     <div class="fixed-action-btn">
         <a class="btn-floating btn-large waves-effect waves-light light-blue lighten-1 pulse" style="position:fixed; bottom:15;right:8;">
             <i class="material-icons">add</i>
@@ -308,6 +351,30 @@
             marker.setMap(map);
         }
 
+=======
+     <div class="fixed-action-btn">
+  <a class="btn-floating btn-large waves-effect waves-light light-blue lighten-1 pulse" style="position:fixed; bottom:15;right:8;"><i class="material-icons">add</i></a>
+    <ul>
+      <li><a href="#DownMod"class="btn-floating light-blue darken-1" style="bottom:0;right:35;"><i class="material-icons">insert_chart</i></a></li>
+      <li><a href="#modal1" class="btn-floating red" style="bottom:0;right:35;"><i class="material-icons">add_alert</i></a></li>
+    </ul>
+  </div>
+
+<div id="googleMap" style="width:100%;height:95%;"></div>
+
+<script>
+function myMap() {
+var mapProp= {
+    center:new google.maps.LatLng(30.379428,78.48323),
+    zoom:15,
+   streetViewControl: false,
+   zoomControl: false
+};
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+}
+</script>
+<script type="text/javascript">
+>>>>>>> 531fdc22aaf8f963723d19cea8eb8c96807d9049
 
         $(document).ready(function () {
             $('.modal').modal();
@@ -315,6 +382,7 @@
             $('select').material_select();
         });
 
+<<<<<<< HEAD
         function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
             var R = 6371; // Radius of the earth in km
             var dLat = deg2rad(lat2 - lat1);  // deg2rad below
@@ -338,3 +406,23 @@
 </body>
 
 </html>
+=======
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnl5j-_c1T7bMQKBb2ijlJx87NP2akmrQ&callback=myMap"></script>
+<!--
+To use this code on your website, get a free API key from Google.
+Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
+-->
+<script>
+	$(document).ready(function(){
+	  $("#logout").click(function(){
+	//e.preventDefault();
+	console.log("click logout");
+	localStorage.removeItem("username");
+	localStorage.setItem("loggedin","0");
+	window.location.href = "login.html";
+});
+  });
+</script>
+</body>
+</html>
+>>>>>>> 531fdc22aaf8f963723d19cea8eb8c96807d9049

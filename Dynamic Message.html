@@ -62,7 +62,7 @@
 		<li>
 			<div class="divider"></div>
 		</li>
-		<li><a class="subheader">Report an issue</a></li>
+		<li><a class="waves-effect waves-light btn btn-flat" id="logout">Logout</a></li>
 	</ul>
 	<form>
 		<div class="container" id="cardpanel">
@@ -133,6 +133,17 @@
 				}
 			});
 		});
+	</script>
+	<script>
+		$(document).ready(function(){
+		  $("#logout").click(function(){
+		//e.preventDefault();
+		console.log("click logout");
+		localStorage.removeItem("username");
+		localStorage.setItem("loggedin","0");
+		window.location.href = "login.html";
+	});
+	  });
 	</script>
 </body>
 

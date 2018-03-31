@@ -49,7 +49,7 @@
 				window.location.href = "nodalview.html";
 			}
 			if (localStorage.getItem("loggedin") == "2") {
-				window.location.href = "nodalview.html";
+				window.location.href = "userMapIndex.html";
 			}
 			var player = localStorage.getItem("player");
 			console.log(player);
@@ -141,7 +141,7 @@
 						localStorage.setItem("username", key);
 						localStorage.setItem("loggedin", "2");
 						window.location.href = "userMapIndex.html";
-					
+
 					}
 					if (response == "Error") {
 						alert("Invalid emaild or password !");
