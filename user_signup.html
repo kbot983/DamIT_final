@@ -103,20 +103,6 @@
 					<label id="langdam">Select Dam</label>
 				</div>
 				<br>
-
-				<div class="input-field col s6">
-					<select id="lang">
-						<option value="" disabled selected>Language</option>
-						<option value="1">Hindi</option>
-						<option value="2">English</option>
-						<option value="3">Marathi</option>
-						<option value="3">Tamil</option>
-						<option value="3">Telegu</option>
-						<option value="3">Gujarati</option>
-					</select>
-					<label>Select Language</label>
-				</div>
-				<br>
 				<div id="emergencyRow">
 					<div class="row">
 						<div class="input-field col s9">
@@ -203,7 +189,7 @@
 						console.log(response);
 						if(response == "Success"){
 							window.location.href = "userMapIndex.html";
-							localStorage.setItem("loggedin", "1");
+							localStorage.setItem("loggedin", "2");
 						}
 					}
 				});

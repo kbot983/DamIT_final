@@ -1,74 +1,66 @@
 <html>
-
 <head>
-	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<link rel="stylesheet" href="./css/materialize.min.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
-	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<style type="text/css">
-		#logosize {
-			height: 21%;
-			width: 59%;
-			margin-top: 45%;
-		}
-	</style>
+		 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+		 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    	  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   	<style type="text/css">
+   		#logosize {
+			    height: 21%;
+			    width: 59%;
+			    margin-top: 45%;
+			}
+   	</style>
 </head>
-
 <body class="light-blue lighten-3">
 	<div class="container">
-		<div class="center">
-			<img src="img/blackSad.png" id="logosize">
-		</div>
+		<div class="center"><img src="img/blackSad.png" id="logosize"></div>
 		<div class="center">
 			<h3>No Internet Connection</h3>
-			<p class="flow-text">Tap on the bell icons for sending an SOS. Connect to an Internet source for Dam IT services</p>
-			<a class=" right btn-floating btn-large waves-effect waves-light red lighten-1 pulse" id="sos">
-				<i class="material-icons">add_alert</i>
-			</a>
+			<p class="flow-text">Tap on the bell icons for sending an SOS. Connect to an Internet source for Dam IT services</p><br>
+			<button class=" right btn-floating btn-large waves-effect waves-light red lighten-1 pulse" id="sos"><i class="material-icons">add_alert</i></button>
+			<button class="waves-effect waves-light btn white blue-text center" id="offline" style="margin-left: 15%;margin-top: 3%;">Retry <i class="material-icons right">refresh</i></button>
 		</div>
 	</div>
 
-
-
-
 	<script>
-		var app = {
-			sendSms: function () {
-				var number = 123;
-				var message = "Test";
-				alert("number=" + number + ", message= " + message);
+		$(document).ready(function(){
+			$('#offline').click(function(){
+				    console.log("test");
+				    var check = 0;
+				    // var status = document.getElementById("status");
+				    var condition = navigator.onLine;
+				    // var state = document.getElementById("state");
+				    // var st;
+				    if (condition) {
+				        window.history.back();
+				    }
+				    // if (check === 1) {
+				    //     navigator.geolocation.getCurrentPosition(onSuccess, onError);
+				    //     function onSuccess(position) {
+				    //         var lat = pos.coords.latitude;
+				    //         var lng = pos.coords.longitude;
+				    //         alert("lat : " + lat + " lng : " + lng);
+				    //     }
+				    // }
 
-				//CONFIGURATION
-				var options = {
-					replaceLineBreaks: false, // true to replace \n by a new line, false by default
-					android: {
-						intent: 'INTENT'  // send SMS with the native android SMS messaging
-						//intent: '' // send SMS without open any other app
-					}
-				};
 
-				var success = function () { alert('Message sent successfully'); };
-				var error = function (e) { alert('Message Failed:' + e); };
-				sms.send(number, message, options, success, error);
-			}
-		};
 
-		$('#sos').click(function () {
-			alert("TEST");
-			navigator.geolocation.getCurrentPosition(function (position) {
-				alert("Lat:" + position.coords.latitude + " Lng:" + position.coords.longitude);
-				var msg = "I need help at https://www.google.co.in/maps/@" + position.coords.latitude + "," + position.coords.longitude + ",15z";
-				alert(msg);
-				window.open('sms:123456?body=' + msg, '_system')
 
-				// app.sendSms();
+				    function onError(error) {
+				        alert('code: ' + error.code + '\n' + 'message: ' + error.message + '\n');
+				    }
+			});
+
+			$('#sos').click(function(){
+				console.log('clicked');
+				navigator.geolocation.getCurrentPosition(function(position){
+					var msg = `I need help at http://maps.google.com/maps?q=loc:`+position.coords.latitude+`,`+position.coords.longitude+`\n\n --Sent by DamIT`;
+					window.open('sms:7208806848?body='+msg, '_system');
+				});
 			});
 		});
-
-
-
 	</script>
 </body>
-
 </html>

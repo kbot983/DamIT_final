@@ -1,0 +1,107 @@
+<html>
+<head>
+	<script type="text/javascript" src="./js/jquery.min.js"></script>
+	<!-- <link rel="stylesheet" href="materialize-v0.100.2/materialize/css/materialize.min.css"> -->
+	<script src="materialize-v0.100.2/materialize/js/materialize.min.js"></script>
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/Rlogin.css">
+	<link rel="stylesheet" href="css/loader2.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<script>
+		 navigator.geolocation.getCurrentPosition(function (position) {
+                var userLat = position.coords.latitude;
+                var userLng = position.coords.longitude;
+                localStorage.setItem("Lat", userLat);
+                localStorage.setItem("Lng", userLng);
+            });
+		var player = localStorage.getItem("player");
+		console.log(player);
+		$(document).ready(function() {
+			if (localStorage.getItem("loggedin") == "1") {
+				window.location.href = "nodalview.html";
+			}
+			else if (localStorage.getItem("loggedin") == "2") {
+				window.location.href = "userMapIndex.html";
+			}
+			var player = localStorage.getItem("player");
+			console.log(player);
+			$('.modal').modal();
+
+		});
+	</script>
+</head>
+<body class="loaded">
+	<div class="blurred-box">
+	  <div class="user-login-box">
+	    <span class="user-icon"></span>
+	    <h3 class="user-name">Login</h3>
+		<form name="citizen_login_form">
+	    <input class="user-password" placeholder="User" name="uemail" type="text" id="uemail langemail"/><br>
+	    <input class="user-password" placeholder="Password" name="pass" type="password" id="pass langpass" /><br><br>
+	    <a style="text-decoration: none ;color: white;" class="center" href="signUp.html" id="langsignup">Sign Up</a><br><br>
+	    <input class="submit" value="Submit" type="submit" id="langlogin" />
+	</form>
+	  </div>
+	</div>
+	<div id="loader-wrapper">
+		<div id="loader"></div>
+		<div class="loader-section section-left"></div>
+		<div class="loader-section section-right"></div>
+	</div>
+
+	<script type="text/javascript">
+		$('form').on('submit', function(e) {
+			e.preventDefault();
+			var x = document.forms["citizen_login_form"]["uemail"].value;
+			if (x == "") {
+				alert("Email required!");
+				return false;
+			}
+			var x = document.forms["citizen_login_form"]["pass"].value;
+			if (x == "") {
+				alert("Password required!");
+				return false;
+			}
+			$.ajax({
+				type: 'post',
+				url: 'http://www.occasionz.in/damit/login.php',
+				cache: false,
+				beforeSend: function() {
+					$('body').removeClass('loaded');
+				},
+				data: $('form').serialize(),
+				success: function(response) {
+					console.log(response);
+					if (response == "Nodal") {
+						var key = document.forms["citizen_login_form"]["uemail"].value;
+						localStorage.setItem("username", key);
+						localStorage.setItem("loggedin", "1");
+						window.location.href = "nodalview.html";
+					}
+					if (response == "User") {
+						var key = document.forms["citizen_login_form"]["uemail"].value;
+						localStorage.setItem("username", key);
+						localStorage.setItem("loggedin", "2");
+						window.location.href = "userMapIndex.html";
+
+					}
+					if (response == "Regional") {
+						var key = document.forms["citizen_login_form"]["uemail"].value;
+						localStorage.setItem("username", key);
+						localStorage.setItem("loggedin", "3");
+						window.location.href = "regionalchart.html";
+
+					}
+					if (response == "Error") {
+						alert("Invalid emaild or password !");
+						document.forms["citizen_login_form"]["pass"].value = "";
+						$('body').addClass('loaded');
+
+					}
+				}
+			});
+		});
+	</script>
+	<script type="text/javascript" src="./js/index.js"></script>
+</body>
+</html>

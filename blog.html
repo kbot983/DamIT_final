@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -17,38 +16,43 @@
 
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
 
-</head>
-
-<body class="blog">
+  <body class="blog">
 
     <!-- Navbar and Header -->
     <nav class="nav-extended tranparent">
-        <div style="background-image: url('img/blog2.jpg');">
-            <div class="nav-wrapper container">
-                <a href="index.html" class="brand-logo">DamIT</a>
-                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-                <!-- Dropdown Structure -->
-                <div class="nav-header center">
-                    <h1>DAM GUIDE</h1>
-                    <div class="tagline" style="font-size: 19px; margin: -30px 0px 15px 0;">Get Dam Info Here</div>
-                </div>
+
+        <div style="background-image: url('img/blog3.jpg');">
+			<div class="nav-wrapper container">
+			<a href="index.html" class="brand-logo">DamIT</a>
+			<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+			  <!-- Dropdown Structure -->
+
+					<div class="nav-header center">
+				  <h1>DAM GUIDE</h1>
+				  <div class="tagline" style="font-size: 19px; margin: -30px 0px 15px 0;">Get Dam Info Here</div>
+				</div>
+			  </div>
+
+      <!-- Fixed Masonry Filters -->
+      <div class="container">
+        <div class="row shortRow">
+            <div class="input-field col l8  s10 white black-text">
+              <i class="material-icons prefix ">search</i>
+              <input id="icon_prefix autocomplete-input" data-ref="input-search" type="text" class="validate autocomplete" placeholder="Search">
             </div>
-            <!-- Fixed Masonry Filters -->
-            <div class="container">
-                <div class="row shortRow">
-                    <div class="input-field col l8  s10 white black-text">
-                        <i class="material-icons prefix ">search</i>
-                        <input id="icon_prefix autocomplete-input" type="text" data-ref="input-search" class="validate autocomplete">
-                    </div>
-                    <div class="col l1  s2">
-                        <a class="waves-effect waves-light btn-flat" onclick="Materialize.updateTextFields()"><i class="material-icons">close</i></a>
-                    </div>
-                </div>
+            <div class="col l1  s2">
+              <a class="waves-effect waves-light btn-flat" onclick="Materialize.updateTextFields()"><i class="material-icons">close</i></a>
             </div>
+          </div>
+        </div>
 
         </div>
+
     </nav>
+
+
     <ul id="nav-mobile" class="side-nav">
         <li>
             <div class="userView ">
@@ -68,13 +72,13 @@
             </div>
         </li>
         <li>
-            <a href="userMapIndex.html">Home</a>
+            <a href="User_Index.html">Home</a>
         </li>
-        <li>
+         <li>
             <a href="UserSchedule.html">Schedule</a>
         </li>
         <li>
-            <a href="#">Dam Guide</a>
+            <a href="blog.html">Dam Guide</a>
         </li>
         <li>
             <a class='dropdown-button white' href='#' data-activates='dropdown1'>Change Language</a>
@@ -89,23 +93,131 @@
         <li>
             <div class="divider"></div>
         </li>
-    </ul>
-    </ul>
+        <li>
+            <a class="waves-effect waves-light btn btn-flat" id="logout">Logout</a>
+        </li>
+</ul>
+        </ul>
 
 
     <div id="portfolio" class="section gray">
-        <div class="container" data-ref="container">
-            <div class="gallery row" id="rowdata">
+      <div class="container">
+        <div class="gallery row">
+
+          <div class="col l4 m6 s12 gallery-item gallery-expand gallery-filter overhead mix mulshi">
+            <div class="gallery-curve-wrapper">
+              <a class="gallery-cover gray" style="height: 300px;">
+                <img src="img/blog1.jpg" alt="placeholder">
+              </a>
+              <div class="gallery-header">
+                <span>Mulshi Dam</span>
+              </div>
+              <div class="gallery-body">
+                <div class="title-wrapper">
+                  <h3>Mulshi Dam</h3>
+                </div>
+
+                 <div class="carousel">
+                      <a class="carousel-item" href="#one!"><img src="img/1.jpg"></a>
+                      <a class="carousel-item" href="#two!"><img src="img/2.jpg"></a>
+                      <a class="carousel-item" href="#three!"><img src="img/3.jpg"></a>
+                      <a class="carousel-item" href="#four!"><img src="img/4.jpg"></a>
+                      <a class="carousel-item" href="#five!"><img src="img/5.jpg"></a>
+                  </div>
+                <p class="description">
+Mulshi is the name of a major dam on the Mula river in India.It is located in the Mulshi taluka administrative division of the Pune district of Maharashtra State.</p>
+
+              </div>
+
 
             </div>
+          </div>
+
+
+          <div class="col l4 m6 s12 gallery-item gallery-expand gallery-filter overhead mix Khadakwasla">
+            <div class="gallery-curve-wrapper">
+              <a class="gallery-cover gray" style="height: 400px;">
+                <img src="img/water.jpg" alt="placeholder">
+              </a>
+              <div class="gallery-header">
+                <span>Khadakwasla Dam</span>
+              </div>
+              <div class="gallery-body">
+                <div class="title-wrapper">
+                  <h3>Khadakwasla Dam</h3>
+                </div>
+
+				 <div class="carousel">
+                      <a class="carousel-item" href="#one!"><img src="img/k1.jpg"></a>
+                      <a class="carousel-item" href="#two!"><img src="img/k2.jpg"></a>
+                      <a class="carousel-item" href="#three!"><img src="img/k3.jpg"></a>
+                      <a class="carousel-item" href="#four!"><img src="img/k4.jpg"></a>
+                      <a class="carousel-item" href="#five!"><img src="img/k5.jpg"></a>
+                  </div>
+                <p class="description">
+				Khadakwasla Dam is a dam on the Mutha River 21 km (13 mi) from the centre of the city of Pune in Maharashtra, India.The dam created a reservoir known as Khadakwasla Lake which is the main source of water for Pune and its suburbs.</p>
+
+              </div>
+
+            </div>
+          </div>
+          <div class="col l4 m6 s12 gallery-item gallery-expand gallery-filter sintel mix tehri">
+            <div class="gallery-curve-wrapper">
+              <a class="gallery-cover gray" style="height: 300px;">
+                <img src="img/tehri.jpg" alt="placeholder">
+              </a>
+              <div class="gallery-header">
+                <span>Tehri Dam</span>
+              </div>
+              <div class="gallery-body">
+                <div class="title-wrapper">
+                  <h3>Tehri Dam</h3>
+                </div>
+				 <div class="carousel">
+                      <a class="carousel-item" href="#one!"><img src="img/1.jpg"></a>
+                      <a class="carousel-item" href="#two!"><img src="img/2.jpg"></a>
+                      <a class="carousel-item" href="#three!"><img src="img/3.jpg"></a>
+                      <a class="carousel-item" href="#four!"><img src="img/4.jpg"></a>
+                      <a class="carousel-item" href="#five!"><img src="img/5.jpg"></a>
+                  </div>
+                <p class="description">
+				The Tehri Dam is the Highest dam in India and one of the highest in the world. It is a multi-purpose rock and earth-fill embankment dam on the Bhagirathi River near Tehri in Uttarakhand, India.</p>
+			  </div>
+
+            </div>
+          </div>
+          <div class="col l4 m6 s12 gallery-item gallery-expand gallery-filter overhead mix bhakra">
+            <div class="gallery-curve-wrapper">
+              <a class="gallery-cover gray" style="height: 300px;">
+                <img src="img/bhakra.jpg" alt="placeholder">
+              </a>
+              <div class="gallery-header">
+                <span>Bhakra Dam</span>
+              </div>
+              <div class="gallery-body">
+                <div class="title-wrapper">
+                  <h3>Bhakra Dam</h3>
+                </div>
+                <p class="description">
+				Bhakra Dam is a concrete gravity dam on the Sutlej River in Bilaspur, Himachal Pradesh in northern India.The dam forms the Gobind Sagar reservoir.The dam, located at a gorge near the (now submerged) upstream Bhakra village in Bilaspur district of Himachal Pradesh of height 226 m.
+              </div>
+
+            </div>
+          </div>
+
+
         </div>
-    </div>
-    <!-- /.container -->
+
+      </div>
+
+    </div><!-- /.container -->
+
 
 
     <!-- Core Javascript -->
     <script src="js/jquery.min.js"></script>
-    <script src="materialize-v0.100.2/materialize/js/materialize.min.js"></script>
+    <!--<script src="materialize-v0.100.2/materialize/js/materialize.min.js"></script>-->
+	<script src="js/materialize.min.js"></script>
     <script>
         $(document).ready(function() {
             var url = "http://www.occasionz.in/damit/dam_desc.php";
@@ -162,7 +274,7 @@
                     });
 
 
-                    var container = document.getElementById('rowdata');
+                    var container = document.getElementById('portfolio');
                     var inputSearch = document.querySelector('[data-ref="input-search"]');
                     var keyupTimeout;
                     var mixer = mixitup(container, {
@@ -219,6 +331,6 @@
     <script src="js/masonry.pkgd.min.js"></script>
     <script src="js/galleryExpand.js"></script>
     <script src="js/init.js"></script>
-</body>
 
+  </body>
 </html>
