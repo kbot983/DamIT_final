@@ -85,6 +85,7 @@
     <input type="text" value="5" id="language" style="display:none;">
     <script>
         // KEEP ENGLISH DEFAULT
+        localStorage.setItem("language", "english");
     </script>
 
     <!--  -->
@@ -207,9 +208,12 @@
             });
             function refresher(){
                 console.log("inside refresher");
+                $('#percentage').hide();
                  $('#btnShow').trigger('click');
                  $("#refresh-button").removeClass("animate-refresh");
                  $("#refresh-button").css({"opacity":"1","pointer-events":"auto"});
+                 $('#percentage').show();
+                   $('#percentage').text(a[0]+"%");
             }
             $("#refresh-button").click(function(){
 
@@ -223,12 +227,11 @@
               url: 'http://www.occasionz.in/damit/mainPage.php',
               success: function (response) {
                 a = JSON.parse(response);
-              $('#percentage').text(a[0]+"%");
                 $('#total').text( a[1]+"M");
                 $('#txtLevel').val(a[0]);
                 $("#refresh-button").css({"opacity":"0.3","pointer-events":"none"});
-
                setTimeout(refresher,5000);
+
             }
         });
          });
